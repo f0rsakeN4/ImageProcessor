@@ -1,24 +1,24 @@
 package com.f0rsaken.imageprocessor.common;
 
-public class ApiResponse<T> {
+public class BaseResponse<T> {
     private int code;
     private String message;
     private T data;
 
-    public ApiResponse() {}
+    public BaseResponse() {}
 
-    public ApiResponse(int code, String message, T data) {
+    public BaseResponse(int code, String message, T data) {
         this.code = code;
         this.message = message;
         this.data = data;
     }
 
-    public static <T> ApiResponse<T> success(T data) {
-        return new ApiResponse<>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(), data);
+    public static <T> BaseResponse<T> success(T data) {
+        return new BaseResponse<>(ResponseCode.SUCCESS.getCode(), ResponseCode.SUCCESS.getMessage(), data);
     }
 
-    public static <T> ApiResponse<T> error(ResponseCode code) {
-        return new ApiResponse<>(code.getCode(), code.getMessage(), null);
+    public static <T> BaseResponse<T> error(ResponseCode code) {
+        return new BaseResponse<>(code.getCode(), code.getMessage(), null);
     }
 
     public int getCode() {

@@ -1,0 +1,51 @@
+# 服务器端口配置
+server:
+  port: 8080  # 你可以根据需要修改端口
+  servlet:
+    context-path: /api
+
+# Spring Boot 配置
+spring:
+  main:
+    web-application-type: servlet  # 指定为 Web 应用
+  application:
+    name: imageProcessor  # 应用名称
+  datasource:
+    url: jdbc:mysql://localhost:3306/imageprocessor?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root  # 替换为你的数据库用户名
+    password: 123456  # 替换为你的数据库密码
+    driver-class-name: com.mysql.cj.jdbc.Driver  # MySQL 8.x 驱动
+  jpa:
+    hibernate:
+      ddl-auto: update  # 自动更新表结构，开发时使用，生产环境建议改为 validate
+    show-sql: true  # 是否打印 SQL 语句
+
+# MyBatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml  # MyBatis XML 映射文件路径
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl  # 显示 SQL 日志
+
+# Knife4j 配置
+knife4j:
+  enable: true  # 启用 Knife4j
+  production: false  # 如果为 true，则在生产环境中隐藏 Knife4j UI
+  basic:
+    enable: true  # 是否启用基础验证，启用后访问 Knife4j 需要输入账号密码
+    username: admin  # Knife4j UI 登录的用户名
+    password: 123456  # Knife4j UI 登录的密码
+  swagger:
+    version: 2.0  # Swagger 的版本，knife4j-openapi2 对应 Swagger 2.x
+    title: imageProcessor API 文档
+    description: imageProcessor 项目 API 文档展示
+    contact:
+    name: hide  # 你可以在此设置你的名字或团队名称
+    terms-of-service: http://localhost:8080/api/doc.html  # API 文档的链接
+    license: Apache 2.0  # 项目的许可证信息
+    license-url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+# 日志配置（可选）
+logging:
+  level:
+    root: info  # 设置全局日志级别
+    com.f0rsakeN: debug  # 设置你项目的包路径的日志级别
