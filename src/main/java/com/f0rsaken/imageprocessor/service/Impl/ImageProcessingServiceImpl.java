@@ -58,7 +58,7 @@ public class ImageProcessingServiceImpl implements ImageProcessingService {
         try {
             // 执行转换
             imageMagick.run(operation);
-            log.info("执行的命令是: magick convert {} -> {}", tempFile.getAbsolutePath(), outputFilePath + "." + format);
+            log.info("执行的命令是: magick convert {} -> {}", tempFile.getAbsolutePath(), outputFilePath);
             log.info("成功将文件转换为: {}", outputFilePath);
             return BaseResponse.success(outputFilePath);
         } catch (Exception e) {
