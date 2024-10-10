@@ -6,7 +6,14 @@ public enum ResponseCode {
     UNAUTHORIZED(401, "Unauthorized"),
     FORBIDDEN(403, "Forbidden"),
     NOT_FOUND(404, "Resource Not Found"),
-    INTERNAL_SERVER_ERROR(500, "Internal Server Error");
+    INTERNAL_SERVER_ERROR(500, "Internal Server Error"),
+
+    // 文件异常
+    VALID_FILE(2001, "Valid File"),
+    FILE_UPLOAD_ERROR(4000, "File upload failed"),
+    INVALID_FILE(4001, "Invalid File"),
+    UNSUPPORTED_FILE_TYPE(4002, "Unsupported File Type"),
+    FILE_TOO_LARGE(4003, "File Too Large");
 
     private final int code;
     private final String message;

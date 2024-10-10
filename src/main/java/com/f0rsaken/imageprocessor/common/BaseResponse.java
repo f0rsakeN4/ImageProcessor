@@ -21,6 +21,10 @@ public class BaseResponse<T> {
         return new BaseResponse<>(code.getCode(), code.getMessage(), null);
     }
 
+    public static <T> BaseResponse<T> error(ResponseCode code, String customMessage) {
+        return new BaseResponse<>(code.getCode(), customMessage, null);
+    }
+
     public int getCode() {
         return code;
     }
@@ -43,5 +47,14 @@ public class BaseResponse<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseResponse{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
     }
 }

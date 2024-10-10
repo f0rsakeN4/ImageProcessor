@@ -25,8 +25,8 @@ public class ImageProcessingServiceImplTest {
     @InjectMocks
     private ImageProcessingServiceImpl imageProcessingService;
 
-    private final String inputFilePath = "src/test/resources/InputFile/";
-    private final String outputFilePath = "src/test/resources/OutputFile/"; // 设置输出文件路径
+    private final String inputFilePath = "src/test/resources/inputFile/";
+    private final String outputFilePath = "src/test/resources/outputFile/"; // 设置输出文件路径
     private final String[] formats = {"bmp", "gif", "jpg", "jpeg", "png", "tiff", "webp"};
 
     @BeforeEach
